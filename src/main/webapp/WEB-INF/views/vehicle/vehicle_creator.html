@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Vehicle creator page</title>
+    </head>
+    <body>
+        <div class="container" th:fragment="content">
+            <form class="form" th:action="@{/vehicle/create}" th:object="${vehicle}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <table>
+                    <tr>
+                        <td class="crRowKey" th:text="#{vehicle.name}">NAME:</td>
+                        <td class="crRowVal"><input type="text" th:field="*{vehicleName}"/></td>
+                    </tr>
+                    <tr>
+                        <td class="crRowKey" th:text="#{vehicle.wheels}">WHEELS:</td>
+                        <td class="crRowVal"><input type="text" th:field="*{numberOfWheels}" /></td>
+                    </tr>
+                    <tr>
+                        <td class="crRowKey" th:text="#{vehicle.color}">COLOR:</td>
+                        <td class="crRowVal"><input type="text" th:field="*{color}" /></td>
+                    </tr>
+                    <tr>
+                        <td class="crRowKey" th:text="#{vehicle.price}">PRICE:</td>
+                        <td class="crRowVal"><input type="text" th:field="*{price}" /></td>
+                    </tr>
+                    <tr>
+                        <td class="crRowKey" th:text="#{vehicle.type}">TYPE:</td>
+                        <td class="crRowVal">
+                            <ul>
+                                <li th:each="ty : ${allTypes}">
+                                    <input type="radio" th:field="*{type}" th:value="${ty}"/>
+                                    <label th:for="${#ids.prev('type')}" th:text="#{${'vehicle.type.' + ty}}">TYPEX</label>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="vehicleCreateButtonData" colspan="0">
+                            <button class="sButton" type="submit" th:text="#{vehicle.create.submit}">SUBMIT</button>
+                        </td>
+                    </tr>
+                </table>
+                <div th:if="${#fields.hasErrors('vehicleName')}" th:errors="*{vehicleName}">Vehiclename is required.</div>
+                <div th:if="${#fields.hasErrors('numberOfWheels')}" th:errors="*{numberOfWheels}">NumberOfWheels is required.</div>
+                <div th:if="${#fields.hasErrors('color')}" th:errors="*{color}">Color is required.</div>
+                <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price is required.</div>
+                <div th:if="${#fields.hasErrors('type')}" th:errors="*{type}">Type is required.</div>
+            </form>
+        </div>
+    </body>
+</html>

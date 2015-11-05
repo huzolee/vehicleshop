@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"/>
+        <script src="/WEB-INF/resources/js/changeLang.js" th:src="@{/resources/js/changeLang.js}"/>
+        <link href="/WEB-INF/resources/styles/core.css" th:href="@{/resources/styles/core.css}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+    <center>
+        <table>
+            <tr>
+                <td>
+                    <div th:replace="fragments/header :: header">
+                        Header
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div th:replace="${view} :: content">
+                        Content
+                    </div>        
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div th:replace="fragments/footer :: footer">
+                        Footer
+                    </div>        
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

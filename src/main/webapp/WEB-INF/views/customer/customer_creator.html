@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Customer creator page</title>
+    </head>
+    <body>
+        <div class="container" th:fragment="content">
+            <form class="form" th:action="@{/customer/create}" th:object="${customer}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <table>
+                    <tr>
+                        <td th:text="#{customer.name}">Name:</td>
+                        <td><input type="text" th:field="*{name}"/></td>
+                    </tr>
+                    <tr>
+                        <td th:text="#{customer.email}">E-mail:</td>
+                        <td><input type="text" th:field="*{email}"/></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="sButton" type="submit" th:text="#{customer.create}">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name is required.</div>
+                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email is required.</div>
+                <th:block th:if="${param.error}">
+                    <div th:replace="fragments/alert :: alert (type='danger', message=#{customer.email_already_exist})">Alert</div>
+                </th:block>
+            </form>
+        </div>
+    </body>
+</html>

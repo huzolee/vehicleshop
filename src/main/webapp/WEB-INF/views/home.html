@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Home page</title>
+    </head>
+    <body>
+        <div class="container" th:fragment="content">
+            <table class="table">
+                <tr>
+                    <td>
+                        <p>
+                            <select class="lang" id="langList" onchange="changeLang()">
+                                <option th:each="lang : ${languages}" 
+                                        th:value="${lang}" 
+                                        th:text="#{${'language.type.' + lang}}">Lang</option>
+                            </select>
+                        </p>
+                    </td>
+                </tr>
+                <tr class="menu"><td></td></tr>
+                <tr><td><p>Hello <span  th:text="${username}"/>!</p></td></tr>
+                <tr><td><br/></td></tr>
+                <tr><td><a th:href="@{/vehicle/creator_form}" th:text="#{vehicle.create_link}">Create vehicle</a></td></tr>
+                <tr><td><a th:href="@{/vehicle/list}" th:text="#{vehicle.list_link}">Vehicle list</a></td></tr>
+                <tr><td><a th:href="@{/customer/creator_form}" th:text="#{customer.create_link}">Create customer</a></td></tr>
+                <tr><td><a th:href="@{/customer/list}" th:text="#{customer.list_link}">Customer list</a></td></tr>
+                <tr><td><br/></td></tr>
+                <tr><td><a href="/logout" th:href="@{#}" onclick="$('#logoutForm').submit();" th:text="#{logout_link}">Logout</a></td></tr>
+            </table>
+
+            <form style="visibility: hidden" id="logoutForm" method="post" action="#" th:action="@{/logout}"/>
+        </div>
+    </body>
+</html>

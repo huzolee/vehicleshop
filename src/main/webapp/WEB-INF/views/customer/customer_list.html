@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Customer list page</title>
+    </head>
+    <body>
+        <div class="container" th:fragment="content">
+            <table class="entityTable">
+                <thead>
+                    <tr>
+                        <th th:text="#{table.header.customer_name}">Customer's name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="c : ${customers}">
+                        <td th:text="${c.name}">Teszt Elek</td>
+                        <td><a th:href="@{'/customer/delete/'+${c.id}}"><span th:text="#{vehicle.delete_link}">Delete</span></a></td>
+                        <td><a th:href="@{'/customer/modify/'+${c.id}}"><span th:text="#{vehicle.modify_link}">Modify</span></a></td>
+                        <td><a th:href="@{'/customer/details/'+${c.id}}"><span th:text="#{vehicle.details_link}">Details</span></a></td>
+                    </tr>
+                    <tr><td colspan="0"><a th:href="@{/}" th:text="#{vehicle.home}">Home</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

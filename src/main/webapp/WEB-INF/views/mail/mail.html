@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Mail template</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+    </head>
+    <body>
+        <p th:inline="text">[[#{mail.date_of_buy}]] <span th:text="${#dates.format(date, #messages.msg('mail.date_format'))}">28-12-2012</span></p>
+        <p th:text="#{vehicle.details}">Vehicle details</p>
+        <table>
+            <thead>
+                <tr>
+                    <th th:text="#{table.header.vehicle_name}">Vehicle's name</th>
+                    <th th:text="#{table.header.color}">Vehicle's color</th>
+                    <th th:text="#{table.header.price}">Vehicle's price</th>
+                    <th th:text="#{table.header.type}">Vehicle's type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td th:text="${vehicleName}">Vehicle name</td>
+                    <td th:text="${color}">Color</td>
+                    <td th:text="${price}">Price</td>
+                    <td th:text="#{${'vehicle.type.' + type}}">TypeX</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

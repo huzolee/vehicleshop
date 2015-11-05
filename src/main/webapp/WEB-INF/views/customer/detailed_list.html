@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Owners list page</title>
+    </head>
+    <body>
+        <div class="container" th:fragment="content">
+            <table class="entityTable">
+                <thead>
+                    <tr>
+                        <th th:text="#{table.header.vehicle_name}">Vehicle's name</th>
+                        <th th:text="#{table.header.number_of_wheels}">Number of wheels</th>
+                        <th th:text="#{table.header.color}">Vehicle's color</th>
+                        <th th:text="#{table.header.price}">Vehicle's price</th>
+                        <th th:text="#{table.header.type}">Vehicle's type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="v : ${vehicles}">
+                        <td th:text="${v.vehicleName}">Vehicle name</td>
+                        <td th:text="${v.numberOfWheels}">Number of wheels</td>
+                        <td th:text="${v.color}">Color</td>
+                        <td th:text="${v.price}">Price</td>
+                        <td th:text="#{'vehicle.type.' + ${v.type}}">Type</td>
+                    </tr>
+                    <tr><td colspan="0"><a th:href="@{/}" th:text="#{vehicle.home}">Home</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+ <configuration>
+    <appender name="LOG" class="ch.qos.logback.core.FileAppender">
+        <file>/home/zoli/VehicleShop/springwebapp.log</file>
+        <append>true</append>
+        
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="ERROR" class="ch.qos.logback.core.FileAppender">
+        <file>/home/zoli/VehicleShop/springwebapp_error.log</file>
+        <append>true</append>
+        
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        
+        <encoder>
+            <pattern>%d{ISO8601} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <root level="ALL">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="ERROR" />
+    </root>
+    
+    <logger name="hu.inbuss.vehicleshop.controller.VehicleController" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+    
+    <logger name="hu.inbuss.vehicleshop.controller.CustomerController" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+    
+    <logger name="hu.inbuss.vehicleshop.service.LoginAttemptService" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+    
+    <logger name="hu.inbuss.vehicleshop.service.UserService" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+    
+    <logger name="hu.inbuss.vehicleshop.configuration.MailConfig" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+    
+    <logger name="hu.inbuss.vehicleshop.service.EmailService" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+</configuration>

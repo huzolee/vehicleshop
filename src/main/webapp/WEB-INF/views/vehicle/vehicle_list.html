@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Vehicle list page</title>
+    </head>
+    <body>
+        <div class="container" th:fragment="content">
+            <table class="entityTable">
+                <thead>
+                    <tr>
+                        <th th:text="#{table.header.vehicle_name}">Vehicle name</th>
+                        <th th:text="#{table.header.number_of_wheels}">Number of wheels</th>
+                        <th th:text="#{table.header.color}">Color</th>
+                        <th th:text="#{table.header.price}">Price</th>
+                        <th th:text="#{table.header.type}">Type</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="v : ${vehicles}">
+                        <td th:text="${v.vehicleName}">Ford</td>
+                        <td th:text="${v.numberOfWheels}">4</td>
+                        <td th:text="${v.color}">red</td>
+                        <td th:text="${v.price}">500000</td>
+                        <td th:text="#{${'vehicle.type.' + v.type}}">Type</td>
+                        <td><a th:href="@{'/vehicle/delete/'+${v.id}}"><span th:text="#{vehicle.delete_link}">Delete</span></a></td>
+                        <td><a th:href="@{'/vehicle/modify/'+${v.id}}"><span th:text="#{vehicle.modify_link}">Modify</span></a></td>
+                        <td><a th:href="@{'/vehicle/sell/'+${v.id}}"><span th:text="#{vehicle.sell_link}">Sell</span></a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="0"><a th:href="@{/}" th:text="#{vehicle.home}">HOME</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

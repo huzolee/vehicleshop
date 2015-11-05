@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Vehicle seller page</title>
+    </head>
+    <body>
+        <div class="container" th:fragment="content">
+            <form class="form" th:action="@{'/customer/buy'}" th:object="${vehicle}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <input type="hidden" th:field="*{vehicleName}"/>
+                <input type="hidden" th:field="*{numberOfWheels}"/>
+                <input type="hidden" th:field="*{color}"/>
+                <input type="hidden" th:field="*{price}"/>
+                <input type="hidden" th:field="*{type}"/>
+
+                <table class="table">
+                    <tr>
+                        <td class="crRowDetail"><p th:text="#{vehicle.details}">VEHICLE DETAILS</p></td>
+                    </tr>
+                    <tr>
+                        <td th:text="#{vehicle.name}">NAME:</td>
+                        <td class="crRowVal"><span th:text="${vehicle.vehicleName}"/></td>
+                    </tr>
+                    <tr>
+                        <td th:text="#{vehicle.wheels}">WHEELS:</td>
+                        <td class="crRowVal"><span th:text="${vehicle.numberOfWheels}"/></td>
+                    </tr>
+                    <tr>
+                        <td th:text="#{vehicle.color}">COLOR:</td>
+                        <td class="crRowVal"><span th:text="${vehicle.color}"/></td>
+                    </tr>
+                    <tr>
+                        <td th:text="#{vehicle.price}">PRICE:</td>
+                        <td class="crRowVal"><span th:text="${vehicle.price}"/></td>
+                    </tr>
+                    <tr>
+                        <td th:text="#{vehicle.type}">TYPE:</td>
+                        <td class="crRowVal"><span th:text="#{'vehicle.type.' + *{type}}"/></td>
+                    </tr>
+                    <tr>
+                        <td class="crRowDetail" colspan="0"><p th:text="#{customer.details}">CUSTOMER DETAILS</p></td>
+                    </tr>
+                    <tr>
+                        <td class="crRowKey">
+                            <select id="customer" th:field="*{customer}">
+                                <option th:each="c : ${customers}" 
+                                        th:value="${{c}}"
+                                        th:text="${c.name}">NAME</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="sButton" type="submit" th:text="#{vehicle.sell_link}">SELL</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,131 @@
+/* 
+    Created on : 2015.10.05., 15:05:19
+    Author     : Szecskó Zoltán <zoltan.szecsko@gmail.com>
+*/
+
+body {
+    color : antiquewhite;
+    margin-top: 200px; 
+    background-color: lightgray;
+}
+
+form.form {
+    width: 24em;
+    text-align: right;
+    color: antiquewhite;
+    border-radius: 10px;
+    background-color: gray;
+}
+
+input:focus { 
+    color: chocolate;
+    background-color: beige;
+}
+
+a.signUpLink:visited {
+    color: antiquewhite;
+}
+
+a.signUpLink:hover {
+    color: lightgray;
+}
+
+tr.rememberMe {
+    text-align: center;
+}
+
+tr.signUp {
+    text-align: center;
+}
+
+tr.signIn {
+    text-align: center;
+}
+
+button.sButton {
+    color: gray;
+    border-radius: 5px;
+}
+
+button.sButton:hover {
+    color: gray;
+    border-radius: 5px;
+    background-color: beige;
+}
+
+table.table {
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: gray;
+}
+
+table.entityTable {
+    width: 500px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: gray;
+}
+
+td.crRowDetail {
+    text-align: center;
+}
+
+td.crRowKey {
+    text-align: right;
+}
+
+td.crRowVal {
+    text-align: left;
+}
+
+td.vehicleCreateButtonData {
+    text-align: center;
+}
+
+select.lang {
+    color: gray;
+    background: beige;
+    border-radius: 5px;
+}
+
+select.lang:focus {
+    color: chocolate;
+    background: beige;
+    border-radius: 5px;
+}
+
+td.sButtonData {
+    text-align: center;
+}
+
+td.signUpLinkData {
+    text-align: center;
+}
+
+span.welcome {
+    color : antiquewhite;
+}
+
+a {
+    color: antiquewhite;
+}
+
+a:visited {
+    color: antiquewhite;
+}
+
+a:hover {
+    color: lightgray;
+}
+
+div.header {
+    border-radius: 10px;
+    background-color: gray;
+}
+
+div.footer {
+    border-radius: 10px;
+    background-color: gray;
+}
