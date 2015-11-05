@@ -14,3 +14,8 @@ Spring based web application.
 - mail sending
 - junit tests, mockito, java mail mocking
 - codecoverage plugin (tested in netbeans ide)
+
+# Test user credentials
+
+username: test
+password: test
