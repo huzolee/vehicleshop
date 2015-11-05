@@ -17,5 +17,5 @@ Spring based web application.
 
 # Test user credentials
 
-username: test
-password: test
+- username: test
+- password: test
